@@ -1,5 +1,5 @@
-(ns word-count)
+(ns word-count
+  (:require [clojure.string :as string]))
 
-(defn word-count [] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn word-count [sentence]
+  (frequencies (re-seq #"\w+" (string/lower-case sentence))))
