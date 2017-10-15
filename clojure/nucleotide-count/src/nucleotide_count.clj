@@ -7,5 +7,5 @@
 )
 
 (defn nucleotide-counts [string]
-	(merge-with + (frequencies (seq string)) {\A 0, \T 0, \C 0, \G 0})
+	(merge {\A 0, \T 0, \C 0, \G 0} (frequencies string))
 )
