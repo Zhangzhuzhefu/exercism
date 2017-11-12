@@ -1,12 +1,10 @@
 (ns sublist)
 
-(defn is-subvec [sub super]
-	(let [sub-leng (count sub) end (- (count super) sub-leng)]
-		(loop [start 0]
-			(if (<= start end)
-				(if (= sub (subvec super start (+ start sub-leng))) true 
-					(recur (inc start)))
-				false))))
+(defn- toStr [list] 
+	(apply str (map (partial str ":") list)))
+
+(defn- is-subvec [sub super]
+	(.contains (toStr super) (toStr sub)))
 
 (defn classify [first second]
 	(cond (= first second) :equal 
