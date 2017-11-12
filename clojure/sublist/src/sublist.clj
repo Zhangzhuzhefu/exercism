@@ -1,10 +1,7 @@
 (ns sublist)
 
-(defn- toStr [list] 
-	(apply str (map (partial str ":") list)))
-
 (defn- is-subvec [sub super]
-	(.contains (toStr super) (toStr sub)))
+	(contains? (into #{}(partition (count sub) 1 super)) sub))
 
 (defn classify [first second]
 	(cond (= first second) :equal 
