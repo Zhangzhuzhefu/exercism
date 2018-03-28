@@ -1,11 +1,8 @@
 import re
 
 def decode(string):
-    words = []
-    count = []
-    codes = re.findall("(\d*)([a-zA-Z\s])",string)
-    zipped = [(int(c) if c.isdigit() else 1, w)for c,w in codes]
-    return "".join(w*c for c,w in zipped)
+    codes = re.findall("(\d*)(\D)",string)
+    return "".join([int(c)*w if c.isdigit() else w for c,w in codes])
 
 
 def encode(string):
