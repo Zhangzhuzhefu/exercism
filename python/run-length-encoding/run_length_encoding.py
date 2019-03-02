@@ -8,7 +8,7 @@ def decode(string):
 
 def encode(string):
     return "".join(
-        str(len(ww))+w if len(ww)!=1 else w 
+        str(len(ww))+w if len(ww)!=1 else w
         for ww, w in re.findall(r'((\D)\2*)', string)
     )
 
